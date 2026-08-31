@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Display Jadwal Sholat Masjid</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="app">
+
+    <!-- HEADER -->
+    <header class="header">
+      <div class="header-left">
+        <img id="logo" src="" alt="Logo" class="logo hidden">
+        <div class="masjid-info">
+          <h1 id="namaMasjid">MASJID</h1>
+          <p id="alamatMasjid"></p>
+        </div>
+      </div>
+      <div class="header-right">
+        <div class="tanggal-masehi" id="tanggalMasehi">-</div>
+        <div class="tanggal-hijriah" id="tanggalHijriah">-</div>
+      </div>
+    </header>
+
+    <!-- JAM DIGITAL -->
+    <section class="jam-section">
+      <div class="jam-digital" id="jamDigital">00:00:00</div>
+      <div class="next-prayer" id="nextPrayerInfo">Memuat jadwal sholat...</div>
+    </section>
+
+    <!-- JADWAL SHOLAT -->
+    <section class="jadwal-section">
+      <div class="prayer-card" data-prayer="Fajr">
+        <div class="prayer-name">Subuh</div>
+        <div class="prayer-time" id="time-Fajr">--:--</div>
+      </div>
+      <div class="prayer-card" data-prayer="Sunrise">
+        <div class="prayer-name">Terbit</div>
+        <div class="prayer-time" id="time-Sunrise">--:--</div>
+      </div>
+      <div class="prayer-card" data-prayer="Dhuhr">
+        <div class="prayer-name">Dzuhur</div>
+        <div class="prayer-time" id="time-Dhuhr">--:--</div>
+      </div>
+      <div class="prayer-card" data-prayer="Asr">
+        <div class="prayer-name">Ashar</div>
+        <div class="prayer-time" id="time-Asr">--:--</div>
+      </div>
+      <div class="prayer-card" data-prayer="Maghrib">
+        <div class="prayer-name">Maghrib</div>
+        <div class="prayer-time" id="time-Maghrib">--:--</div>
+      </div>
+      <div class="prayer-card" data-prayer="Isha">
+        <div class="prayer-name">Isya</div>
+        <div class="prayer-time" id="time-Isha">--:--</div>
+      </div>
+    </section>
+
+    <!-- RUNNING TEXT -->
+    <footer class="marquee-wrap">
+      <div class="marquee" id="marquee"></div>
+    </footer>
+
+  </div>
+
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

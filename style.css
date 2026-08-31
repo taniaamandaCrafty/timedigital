@@ -1,0 +1,203 @@
+/* ===================================================
+   DISPLAY MASJID — STYLE
+   =================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+:root{
+  --bg-dark: #062e2a;
+  --bg-darker: #041f1c;
+  --gold: #d4af37;
+  --gold-light: #f2d879;
+  --green: #0e7a5f;
+  --green-light: #14a37f;
+  --text-light: #f5f2e7;
+  --text-muted: #b9c9c3;
+  --card-bg: rgba(255,255,255,0.06);
+  --card-border: rgba(212,175,55,0.35);
+}
+
+*{ margin:0; padding:0; box-sizing:border-box; }
+
+html, body{
+  height:100%;
+  width:100%;
+  overflow:hidden;
+  font-family:'Poppins', sans-serif;
+  background: radial-gradient(circle at 50% 0%, var(--bg-dark), var(--bg-darker) 75%);
+  color: var(--text-light);
+}
+
+.app{
+  height:100vh;
+  width:100vw;
+  display:flex;
+  flex-direction:column;
+  padding: 2vh 3vw;
+  gap: 2vh;
+}
+
+.hidden{ display:none; }
+
+/* ---------- HEADER ---------- */
+.header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-bottom: 2px solid var(--card-border);
+  padding-bottom: 1.5vh;
+}
+
+.header-left{
+  display:flex;
+  align-items:center;
+  gap:1.2vw;
+}
+
+.logo{ height:7vh; width:auto; }
+
+.masjid-info h1{
+  font-size: clamp(1.4rem, 2.6vw, 2.6rem);
+  font-weight:800;
+  letter-spacing:1px;
+  color: var(--gold-light);
+  text-transform:uppercase;
+}
+
+.masjid-info p{
+  font-size: clamp(0.8rem, 1vw, 1.1rem);
+  color: var(--text-muted);
+  margin-top:0.2vh;
+}
+
+.header-right{
+  text-align:right;
+}
+
+.tanggal-masehi{
+  font-size: clamp(1rem, 1.4vw, 1.5rem);
+  font-weight:600;
+}
+
+.tanggal-hijriah{
+  font-size: clamp(0.85rem, 1.1vw, 1.2rem);
+  color: var(--gold-light);
+  margin-top:0.3vh;
+}
+
+/* ---------- JAM ---------- */
+.jam-section{
+  text-align:center;
+  padding: 1vh 0;
+}
+
+.jam-digital{
+  font-size: clamp(3rem, 9vw, 8rem);
+  font-weight:800;
+  letter-spacing:4px;
+  color: var(--text-light);
+  text-shadow: 0 0 30px rgba(212,175,55,0.35);
+  font-variant-numeric: tabular-nums;
+}
+
+.next-prayer{
+  margin-top: 0.5vh;
+  font-size: clamp(1rem, 1.6vw, 1.7rem);
+  color: var(--gold-light);
+  font-weight:600;
+}
+
+.next-prayer.azan-time{
+  color: #ff6b6b;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink{
+  0%, 100%{ opacity:1; }
+  50%{ opacity:0.4; }
+}
+
+/* ---------- JADWAL SHOLAT ---------- */
+.jadwal-section{
+  flex:1;
+  display:grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1.2vw;
+  align-items:stretch;
+}
+
+.prayer-card{
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 18px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap: 1vh;
+  transition: all 0.4s ease;
+}
+
+.prayer-card.active{
+  background: linear-gradient(160deg, var(--green-light), var(--green));
+  border-color: var(--gold);
+  transform: scale(1.04);
+  box-shadow: 0 0 25px rgba(20,163,127,0.5);
+}
+
+.prayer-name{
+  font-size: clamp(0.9rem, 1.3vw, 1.4rem);
+  color: var(--text-muted);
+  font-weight:600;
+  letter-spacing: 1px;
+  text-transform:uppercase;
+}
+
+.prayer-card.active .prayer-name{
+  color: var(--text-light);
+}
+
+.prayer-time{
+  font-size: clamp(1.4rem, 2.4vw, 2.4rem);
+  font-weight:700;
+  font-variant-numeric: tabular-nums;
+  color: var(--gold-light);
+}
+
+.prayer-card.active .prayer-time{
+  color: #fff;
+}
+
+/* ---------- RUNNING TEXT ---------- */
+.marquee-wrap{
+  overflow:hidden;
+  white-space:nowrap;
+  background: rgba(212,175,55,0.12);
+  border-top: 2px solid var(--card-border);
+  border-radius: 12px;
+  padding: 1.2vh 0;
+}
+
+.marquee{
+  display:inline-block;
+  padding-left: 100%;
+  font-size: clamp(0.9rem, 1.3vw, 1.4rem);
+  font-weight:500;
+  color: var(--text-light);
+  animation: scroll-left 30s linear infinite;
+}
+
+@keyframes scroll-left{
+  0%{ transform: translateX(0); }
+  100%{ transform: translateX(-100%); }
+}
+
+/* ---------- RESPONSIVE (layar sempit / mode potret) ---------- */
+@media (max-width: 900px){
+  .jadwal-section{
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+  .header{ flex-direction:column; align-items:flex-start; gap:1vh; }
+  .header-right{ text-align:left; }
+}
